@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Telegram Bot</title>
+</head>
+<body>
+    <h1>¡Hola desde Telegram!</h1>
+    <p id="username"></p>
+
+    <script>
+        // JavaScript para obtener el nombre de usuario desde el bot de Telegram
+        fetch('/getUsername')
+            .then(response => response.text())
+            .then(username => {
+                document.getElementById('username').textContent = `Mi nombre de usuario de Telegram es: ${username}`;
+            })
+            .catch(error => {
+                console.error('Error al obtener el nombre de usuario:', error);
+                document.getElementById('username').textContent = 'No se pudo obtener el nombre de usuario.';
+            });
+    </script>
+</body>
+</html>
